@@ -1,0 +1,19 @@
+{
+    "name": "furiosojack/pay-u-payment-sdk",
+    "description": "Repositorio personalizado y acomodado para pagos con PayU basando en el SDK Official de PayU",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FuriosoJack",
+            "email": "iam@furiosojack.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "FuriosoJack\\PayUPaymentSDK\\": "src"
+        }
+    }
+}
