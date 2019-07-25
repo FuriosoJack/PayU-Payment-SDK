@@ -75,7 +75,11 @@ abstract class PayUParametersAbstract
     {
         return in_array($paramName, $this->parametersObtional);
     }
-    //Inicaliza los parametros requeridos
+
+    /**
+     * Inicaliza los parametros requeridos
+     * @return mixed
+     */
     protected abstract function initParametersRequired();
 
     /**
