@@ -162,7 +162,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
      * Build a credit card request
      * @param array $parameters
      * @return \stdClass with the credit card request built
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function buildCreditCard($parameters){
 
@@ -181,7 +181,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		$expirationDate = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_EXPIRATION_DATE);
 
 		if (isset($expirationDate)){
-			PayUSubscriptionsRequestUtil::isValidDate($expirationDate,
+			self::isValidDate($expirationDate,
 													PayUConfig::PAYU_SECONDARY_DATE_FORMAT,
 													PayUParameters::CREDIT_CARD_EXPIRATION_DATE);
 			$expirationDateSplit = explode('/',$expirationDate);
@@ -334,11 +334,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 	}
 
 
-	/**
-	 * Validate a subscription plan
-	 * @param array $parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     * Validate a subscription plan
+     * @param array $parameters
+     * @throws \InvalidArgumentException
+     */
 	public static function validateSubscriptionPlan($parameters){
 
 		$required = array(PayUParameters::PLAN_INTERVAL, PayUParameters::PLAN_CODE,
@@ -357,11 +357,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		}
 	}
 
-	/**
-	 * Validate a customer in subscription request
-	 * @param array $parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     * Validate a customer in subscription request
+     * @param array $parameters
+     * @throws \InvalidArgumentException
+     */
 	public static function validateCustomerToSubscription($parameters, $edit = FALSE){
 
 		$customerId = CommonRequestUtil::getParameter($parameters, PayUParameters::CUSTOMER_ID);
@@ -376,11 +376,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 	}
 
 
-	/**
-	 * Validate a customer
-	 * @param array $parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     * Validate a customer
+     * @param array $parameters
+     * @throws \InvalidArgumentException
+     */
 	public static function validateCustomer($parameters, $edit = FALSE){
 
 		$customerEmail = CommonRequestUtil::getParameter($parameters, PayUParameters::CUSTOMER_EMAIL);
@@ -396,11 +396,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		}
 	}
 
-	/**
-	 * Validate a Credit Card or Token
-	 * @param array $parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     * Validate a Credit Card or Token
+     * @param array $parameters
+     * @throws \InvalidArgumentException
+     */
 	public static function validateCreditCard($parameters){
 		$tokenId = CommonRequestUtil::getParameter($parameters, PayUParameters::TOKEN_ID);
 		if(isset($tokenId)){
@@ -426,11 +426,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 
 	}
 
-	/**
-	 * Validate a Bank Account
-	 * @param array $parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     * Validate a Bank Account
+     * @param array $parameters
+     * @throws \InvalidArgumentException
+     */
 	public static function validateBankAccount($parameters){
 		$bankAccountId = CommonRequestUtil::getParameter($parameters, PayUParameters::BANK_ACCOUNT_ID);
 		if(isset($bankAccountId)){

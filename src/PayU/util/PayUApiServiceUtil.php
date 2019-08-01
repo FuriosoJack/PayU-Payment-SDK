@@ -26,11 +26,10 @@ class PayUApiServiceUtil{
      * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
      * @param bool $removeNullValues if remove null values in request and response object
      * @return string response
-     * @throws RuntimeException
-     * @throws InvalidArgumentException
-     * @throws IllegalArgumentException
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      * @throws PayUException
+     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
      */
 	public static function sendRequest($request, PayUHttpRequestInfo $payUHttpRequestInfo, $removeNullValues = NULL){
 		if(!isset($removeNullValues)){

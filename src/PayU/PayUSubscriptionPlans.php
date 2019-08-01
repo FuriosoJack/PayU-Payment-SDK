@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsRequestUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsUrlResolver;
 use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
@@ -21,9 +22,8 @@ class PayUSubscriptionPlans{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function create($parameters, $lang = null){
 		PayUSubscriptionsRequestUtil::validateSubscriptionPlan($parameters);
@@ -42,9 +42,8 @@ class PayUSubscriptionPlans{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function find($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
@@ -65,8 +64,8 @@ class PayUSubscriptionPlans{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function update($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
@@ -92,9 +91,8 @@ class PayUSubscriptionPlans{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function delete($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
@@ -118,9 +116,7 @@ class PayUSubscriptionPlans{
      * @param string $lang language of request see SupportedLanguages class
      * @return the subscription plan list
      * @throws PayUException
-     * @throws InvalidParametersException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function listPlans($parameters, $lang = null){
 

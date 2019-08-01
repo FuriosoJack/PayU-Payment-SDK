@@ -26,7 +26,7 @@ class HttpClientUtil {
      * @param Object $request this object is encode to json is used to request data
      * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
      * @return string response
-     * @throws RuntimeException
+     * @throws \RuntimeException
      * @throws ConnectionException
      */
 	static function sendRequest($request, PayUHttpRequestInfo $payUHttpRequestInfo){
@@ -35,8 +35,8 @@ class HttpClientUtil {
 		self::CONTENT_TYPE,
 		self::CONTENT_LENGTH . strlen($request),
 		self::ACCEPT);
-		if((isset($payUHttpRequestInfo->lang))){
-			array_push($httpHeader,HttpClientUtil::ACCEPT_LANGUAGE . '$payUHttpRequestInfo->lang');
+		if(isset($payUHttpRequestInfo->lang)){
+			$httpHeader[] = self::ACCEPT_LANGUAGE . '$payUHttpRequestInfo->lang';
 		}
 
 

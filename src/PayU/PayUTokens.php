@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUTokensRequestUtil;
 use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
@@ -16,14 +17,15 @@ use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
  */
 class PayUTokens{
 
-	/**
-	 * Creates a credit card token
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a credit card token
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
+     */
 	public static function create($parameters, $lang = null){
 
 		$required = array(PayUParameters::CREDIT_CARD_NUMBER,
@@ -40,14 +42,15 @@ class PayUTokens{
 	}
 
 
-	/**
-	 * Finds a credit card token
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds a credit card token
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
+     */
 	public static function find($parameters, $lang = null){
 
 		$tokenId = CommonRequestUtil::getParameter($parameters, PayUParameters::TOKEN_ID);
@@ -74,7 +77,6 @@ class PayUTokens{
      * @return The transaction response to the request sent
      * @throws PayUException
      * @throws \InvalidArgumentException
-     * @throws util\RuntimeException
      */
 	public static function remove($parameters, $lang=null){
 

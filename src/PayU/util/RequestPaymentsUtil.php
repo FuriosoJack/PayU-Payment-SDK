@@ -144,14 +144,14 @@ class RequestPaymentsUtil extends CommonRequestUtil {
 	}
 
 
-	/**
-	 * Build a transaction object to be added to payment request
-	 * @param array $parameters the parameters to build a transaction
-	 * @param strng $lang to be used
-	 * @return the transaction built
-	 * @throws InvalidArgumentException if any paramter is invalid
-	 *
-	 */
+    /**
+     * Build a transaction object to be added to payment request
+     * @param array $parameters the parameters to build a transaction
+     * @param strng $lang to be used
+     * @return the transaction built
+     *
+     * @throws InvalidParametersException
+     */
 	private static function buildTransactionRequest($parameters, $lang){
 		$transaction = new \stdClass();
 		$order = null;
@@ -494,7 +494,6 @@ class RequestPaymentsUtil extends CommonRequestUtil {
 	 *
 	 * @param transaction
 	 * @param parameters
-	 * @throws InvalidParametersException
 	 */
 	private static function addPSEExtraParameters($transaction, $parameters){
 

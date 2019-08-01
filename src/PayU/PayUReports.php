@@ -40,9 +40,9 @@ class PayUReports{
      * @param parameters The parameters to be sent to the server
      * @param string $lang language of request see SupportedLanguages class
      * @return order found
+     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
      */
 	public static function getOrderDetail($parameters, $lang = null){
 
@@ -69,8 +69,8 @@ class PayUReports{
      * @param string $lang language of request see SupportedLanguages class
      * @return The order list corresponding whit the given reference code
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function getOrderDetailByReferenceCode($parameters, $lang = null){
 
@@ -97,8 +97,8 @@ class PayUReports{
      * @param string $lang language of request see SupportedLanguages class
      * @return The transaction response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function getTransactionResponse($parameters, $lang = null){
 

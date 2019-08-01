@@ -37,7 +37,7 @@ abstract class UrlResolver{
 	 * @param string $entity
 	 * @param string $operation
 	 * @param string $params
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 * @return the url segment built
 	 */
 	public function getUrlSegment($entity, $operation, $params = NULL){

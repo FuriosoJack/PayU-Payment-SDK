@@ -21,9 +21,7 @@ class PayURecurringBillItem{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function create($parameters, $lang = null){
 
@@ -51,9 +49,8 @@ class PayURecurringBillItem{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+
      */
 	public static function find($parameters, $lang = null){
 
@@ -75,10 +72,9 @@ class PayURecurringBillItem{
      * @param parameters
      *            The parameters to be sent to the server
      * @return the recurring bill items found
+     * @throws \InvalidArgumentException
      * @throws PayUException
-     * @throws InvalidParametersException
-     * @throws ConnectionException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidParametersException
      */
 	public static function findList($parameters, $lang = null)	{
 
@@ -111,9 +107,7 @@ class PayURecurringBillItem{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function update($parameters, $lang = null){
 		$required = array(PayUParameters::RECURRING_BILL_ITEM_ID);
@@ -134,9 +128,7 @@ class PayURecurringBillItem{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function delete($parameters, $lang = null){
 		$required = array(PayUParameters::RECURRING_BILL_ITEM_ID);

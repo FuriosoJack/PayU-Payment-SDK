@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 use FurosoJack\PayUPaymentSDK\PayU\util\RequestPaymentsUtil;
@@ -23,8 +24,8 @@ class PayUBankAccounts{
      * @param string $lang language of request see SupportedLanguages class
      * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\PayUException
      */
 	public static function create($parameters, $lang = null){
 
@@ -49,9 +50,8 @@ class PayUBankAccounts{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function delete($parameters, $lang = null){
 
@@ -76,9 +76,8 @@ class PayUBankAccounts{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function update($parameters, $lang = null){
 
@@ -102,9 +101,8 @@ class PayUBankAccounts{
      * @param parameters The parameters to be sent to the server
      * @return the find bank account
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function find($parameters, $lang = null){
 
@@ -125,10 +123,7 @@ class PayUBankAccounts{
      * @param parameters The parameters to be sent to the server
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
-     *
-     * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function findListByCustomer($parameters, $lang = null){
 		$request = new \stdClass();

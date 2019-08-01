@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\RequestPaymentsUtil;
 use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
@@ -38,8 +39,7 @@ class PayUPayments{
 	 * Makes a get payment methods request
 	 * @param string $lang language of request see SupportedLanguages class
 	 * @return The payment method list
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	public static function getPaymentMethods($lang = null){
 		$request = RequestPaymentsUtil::buildPaymentMethodsListRequest($lang);
@@ -53,7 +53,7 @@ class PayUPayments{
 	 * @param string $lang language of request see SupportedLanguages class
 	 * @return The payment method information
 	 * @throws PayUException
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 */
 	public static function getPaymentMethodAvailability($paymentMethodParameter, $lang = null){
 		$request = RequestPaymentsUtil::buildPaymentMethodAvailabilityRequest($paymentMethodParameter, $lang);
@@ -70,9 +70,8 @@ class PayUPayments{
      *
      * @return The bank list information
      * @throws PayUException
-     * @throws InvalidArgumentException
-     *
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function getPSEBanks($parameters, $lang = null){
 		CommonRequestUtil::validateParameters($parameters, array(PayUParameters::COUNTRY));
@@ -89,7 +88,7 @@ class PayUPayments{
 	 * @param string $lang language of request see SupportedLanguages class
 	 * @return The transaction response to the request sent
 	 * @throws PayUException
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 *
 	 */
 	public static function doAuthorizationAndCapture($parameters, $lang = null)
@@ -105,10 +104,10 @@ class PayUPayments{
      * @param transactionType
      *            The type of the payment transaction
      * @param string $lang language of request see SupportedLanguages class
-     * @return The transaction response to the request sent
+     * @return string
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function doPayment($parameters, $transactionType, $lang){
 
@@ -223,8 +222,8 @@ class PayUPayments{
      * @param string $lang language of request see SupportedLanguages class
      * @return The transaction response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	private static function processTransactionAlreadyAuthorizated($parameters, $transactionType, $lang){
 		$required = array(PayUParameters::TRANSACTION_ID,
@@ -244,11 +243,10 @@ class PayUPayments{
      * @param string $lang language of request see SupportedLanguages class
      * @return The request response
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
      */
 	public static function  doAuthorization($parameters, $lang = null){
-		return PayUPayments::doPayment($parameters, TransactionType::AUTHORIZATION, $lang);
+		return self::doPayment($parameters, TransactionType::AUTHORIZATION, $lang);
 	}
 
 
@@ -258,9 +256,9 @@ class PayUPayments{
      * @param parameters to build the request
      * @param string $lang language of request see SupportedLanguages class
      * @return The transaction response to the request sent
+     * @throws \InvalidArgumentException
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws exceptions\ConnectionException
      */
 	public static function doCapture($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::CAPTURE, $lang);
@@ -273,8 +271,8 @@ class PayUPayments{
      * @param string $lang language of request see SupportedLanguages class
      * @return The transaction response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function doVoid($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::VOID, $lang);
@@ -287,8 +285,8 @@ class PayUPayments{
      * @param string $lang language of request see SupportedLanguages class
      * @return The transaction response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function doRefund($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::REFUND, $lang);

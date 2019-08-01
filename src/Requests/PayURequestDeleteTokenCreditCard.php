@@ -15,8 +15,6 @@ class PayURequestDeleteTokenCreditCard extends PayUBasicRequestAbstract
 
     /**
      * Se define metodo para el envio del request
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\InvalidArgumentException
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\PayUException
      */
     public function sendRequest()
     {

@@ -64,15 +64,14 @@ class CommonRequestUtil{
 	}
 
 
-
-	/**
-	 *
-	 * Validate if the both required or invalid parameters exist in the parameters array
-	 * @param array $parameters holds the parameters
-	 * @param array $required holds the key names of the required parameters
-	 * @param array $invalid holds the key names of the invalid parameters
-	 * @throws InvalidParameterException
-	 */
+    /**
+     *
+     * Validate if the both required or invalid parameters exist in the parameters array
+     * @param array $parameters holds the parameters
+     * @param array $required holds the key names of the required parameters
+     * @param array $invalid holds the key names of the invalid parameters
+     * @throws \InvalidArgumentException
+     */
 	static function validateParameters($parameters,	$required = NULL, $invalid = NULL) {
 
 		$errorMessage = null;
@@ -178,13 +177,13 @@ class CommonRequestUtil{
 	 * @param string $dateString
 	 * @param string $dateFormat
 	 * @param string $parameterName the name of the parameter
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 * @return boolean true if is valid or exception the otherwise
 	 */
 	protected static function isValidDate( $dateString, $dateFormat, $parameterName){
 		if (DateTime::createFromFormat($dateFormat, $dateString) == FALSE) {
 			throw new
-			InvalidArgumentException(
+			\InvalidArgumentException(
 					sprintf("The [%s] format is invalid. Use [%s] ",
 							$parameterName,
 							$dateFormat));

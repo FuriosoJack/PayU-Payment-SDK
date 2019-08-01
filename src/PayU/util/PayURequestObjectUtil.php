@@ -14,7 +14,7 @@ class PayURequestObjectUtil{
 	/**
 	 * Remove null values of object or array
 	 * @param Object $object parameter with null values
-	 * @throws InvalidArgumentException if the object parameter is null
+	 * @throws \InvalidArgumentException if the object parameter is null
 	 * @return the object processed
 	 */
 	public static function removeNullValues($object){
@@ -68,7 +68,7 @@ class PayURequestObjectUtil{
 	/**
 	 * Convert to utf-8 the string values
 	 * @param Object or array $object parameter with string values
-	 * @throws InvalidArgumentException if the object parameter is null or it isn't a object
+	 * @throws \InvalidArgumentException if the object parameter is null or it isn't a object
 	 * @return the object processed
 	 */
 	public static function encodeStringUtf8($object){
@@ -101,12 +101,12 @@ class PayURequestObjectUtil{
 		return $object;
 	}
 
-	/**
-	 * Adjust miliseconds from epoch to date format
-	 * @param the object or array $data
-	 * @throws InvalidArgumentException
-	 * @return the object or array processed
-	 */
+    /**
+     * Adjust miliseconds from epoch to date format
+     * @param the object or array $data
+     * @return the object or array processed
+     * @throws \InvalidArgumentException
+     */
 	public static function formatDates($data){
 		if(!isset($data)){
 			throw new \InvalidArgumentException("the object to format dates is null ");
@@ -119,7 +119,7 @@ class PayURequestObjectUtil{
 
 
 		foreach($data as $k => $v){
-			if(PayURequestObjectUtil::isKeyDateField($k)){
+			if(self::isKeyDateField($k)){
 				if(is_array($data)){
 					$miliseconds = $data[$k];
 					$data[$k] = PayURequestObjectUtil::getDate($miliseconds);
@@ -161,7 +161,7 @@ class PayURequestObjectUtil{
 	/**
 	 * Format a integer to a date string using PayUConfig::PAYU_DATE_FORMAT
 	 * @param integer $miliseconds
-	 * @throws InvalidArgumentException
+	 * @throws \InvalidArgumentException
 	 * @return the date string
 	 */
 	public static function getDate($miliseconds){

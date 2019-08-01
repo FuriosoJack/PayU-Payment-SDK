@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsUrlResolver;
 use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
@@ -22,9 +23,7 @@ class PayURecurringBill{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function find($parameters, $lang = null){
 
@@ -53,8 +52,8 @@ class PayURecurringBill{
      * @param string $lang language of request see SupportedLanguages class
      * @return the subscription plan list
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function listRecurringBills($parameters, $lang = null){
 

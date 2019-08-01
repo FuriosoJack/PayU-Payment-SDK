@@ -1,6 +1,8 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
 use FurosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
+use FurosoJack\PayUPaymentSDK\PayU\PayU;
 
 /**
  *
@@ -50,7 +52,7 @@ class PayUReportsRequestUtil extends CommonRequestUtil{
 		$request = CommonRequestUtil::buildCommonRequest($lang,
 				PayUCommands::ORDER_DETAIL);
 
-		$orderId = intval(CommonRequestUtil::getParameter($parameters, PayUParameters::ORDER_ID));
+		$orderId = (int)CommonRequestUtil::getParameter($parameters, PayUParameters::ORDER_ID);
 
 
 		$request->details = CommonRequestUtil::addMapEntry(null, PayUKeyMapName::ORDER_ID, $orderId);

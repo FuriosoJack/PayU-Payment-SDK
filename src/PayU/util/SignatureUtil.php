@@ -35,16 +35,16 @@ use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
 	 * @param string $merchantId the identifier of merchant
 	 * @param string $key authentication key
 	 * @param string $algorithm the to use
-	 * @throws IllegalArgumentException
+	 * @throws \InvalidArgumentException
 	 * @return the signature built
 	 */
 	static function buildSignature($order,$merchantId, $key, $algorithm){
 
-		$message = SignatureUtil::buildMessage($order, $merchantId, $key);
+		$message = self::buildMessage($order, $merchantId, $key);
 
-		if (SignatureUtil::MD5_ALGORITHM == $algorithm) {
+		if (self::MD5_ALGORITHM == $algorithm) {
 			return md5($message);
-		}else if (SignatureUtil::SHA_ALGORITHM == $algorithm) {
+		}else if (self::SHA_ALGORITHM == $algorithm) {
 			return sha1($message);
 		}else {
 			throw new \InvalidArgumentException("Could not create signature. Invalid algoritm");
@@ -81,12 +81,12 @@ use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
 	}
 
 
-	/**
-	 * Validates the order values before to create a request signature
-	 * @param Object $order the order to be sent in a transaction request
-	 * @param string $merchantId the identifier of merchant
-	 * @throws InvalidArgumentException
-	 */
+     /**
+      * Validates the order values before to create a request signature
+      * @param Object $order the order to be sent in a transaction request
+      * @param string $merchantId the identifier of merchant
+      * @throws \InvalidArgumentException
+      */
 	static function validateOrder($order, $merchantId){
 		$txValueName = PayUKeyMapName::TX_VALUE;
 		if (!isset($merchantId)) {

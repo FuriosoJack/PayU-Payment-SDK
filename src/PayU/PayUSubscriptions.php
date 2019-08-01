@@ -23,9 +23,7 @@ class PayUSubscriptions{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function createSubscription($parameters, $lang = null){
 
@@ -56,9 +54,7 @@ class PayUSubscriptions{
      * @param parameters The parameters to be sent to the server
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
 	public static function update($parameters, $lang = null) {
 
@@ -92,9 +88,8 @@ class PayUSubscriptions{
      * @param string $lang language of request see SupportedLanguages class
      * @return The response to the request sent
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function cancel($parameters, $lang = null){
 		$required = array(PayUParameters::SUBSCRIPTION_ID);
@@ -118,9 +113,8 @@ class PayUSubscriptions{
      * @param parameters The parameters to be sent to the server
      * @return the finded Subscription
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidParameterException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function find($parameters, $lang = null){
 
@@ -145,8 +139,8 @@ class PayUSubscriptions{
      * @return The response to the request sent
      *
      * @throws PayUException
-     * @throws InvalidArgumentException
-     * @throws util\InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @throws exceptions\ConnectionException
      */
 	public static function findSubscriptionsByPlanOrCustomerOrAccount($parameters, $lang = null){
 		$request = new \stdClass();
@@ -173,7 +167,6 @@ class PayUSubscriptions{
      * @param $existParamBankAccount
      * @param $existParamCreditCard
      * @throws PayUException
-     * @throws util\InvalidParameterException
      */
 	public static function validatePaymentMethod($parameters, $existParamBankAccount, $existParamCreditCard, $edit = FALSE) {
 		if ($existParamBankAccount == TRUE && $existParamCreditCard == TRUE){
