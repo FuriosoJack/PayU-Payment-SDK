@@ -34,15 +34,16 @@ class PayUReports{
 	}
 
 
-	/**
-	 * Makes an order details reporting petition by the id
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return order found
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Makes an order details reporting petition by the id
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return order found
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function getOrderDetail($parameters, $lang = null){
 
 		CommonRequestUtil::validateParameters($parameters, array(PayUParameters::ORDER_ID));
@@ -61,15 +62,16 @@ class PayUReports{
 
 	}
 
-	/**
-	 * Makes an order details reporting petition by reference code
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The order list corresponding whit the given reference code
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Makes an order details reporting petition by reference code
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The order list corresponding whit the given reference code
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function getOrderDetailByReferenceCode($parameters, $lang = null){
 
 		CommonRequestUtil::validateParameters($parameters, array(PayUParameters::REFERENCE_CODE));
@@ -88,15 +90,16 @@ class PayUReports{
 
 	}
 
-	/**
-	 * Makes a transaction reporting petition by the id
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Makes a transaction reporting petition by the id
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function getTransactionResponse($parameters, $lang = null){
 
 		CommonRequestUtil::validateParameters($parameters, array(PayUParameters::TRANSACTION_ID));

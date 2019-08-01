@@ -62,17 +62,18 @@ class PayUPayments{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * list PSE Banks
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 *
-	 * @return The bank list information
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 *
-	 */
+    /**
+     * list PSE Banks
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     *
+     * @return The bank list information
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     *
+     * @throws util\InvalidParameterException
+     */
 	public static function getPSEBanks($parameters, $lang = null){
 		CommonRequestUtil::validateParameters($parameters, array(PayUParameters::COUNTRY));
 		$paymentCountry = CommonRequestUtil::getParameter($parameters, PayUParameters::COUNTRY);
@@ -93,22 +94,22 @@ class PayUPayments{
 	 */
 	public static function doAuthorizationAndCapture($parameters, $lang = null)
 	{
-		return PayUPayments::doPayment($parameters,TransactionType::AUTHORIZATION_AND_CAPTURE, $lang);
+		return self::doPayment($parameters,TransactionType::AUTHORIZATION_AND_CAPTURE, $lang);
 	}
 
 
-
-	/**
-	 * Makes payment petition
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param transactionType
-	 *            The type of the payment transaction
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Makes payment petition
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param transactionType
+     *            The type of the payment transaction
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function doPayment($parameters, $transactionType, $lang){
 
 		$requiredAll = array(
@@ -213,17 +214,18 @@ class PayUPayments{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Process a transaction already authorizated
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param transactionType
-	 *            The type of the payment transaction
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Process a transaction already authorizated
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param transactionType
+     *            The type of the payment transaction
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	private static function processTransactionAlreadyAuthorizated($parameters, $transactionType, $lang){
 		$required = array(PayUParameters::TRANSACTION_ID,
 						PayUParameters::ORDER_ID);
@@ -235,55 +237,59 @@ class PayUPayments{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Do an authorization transaction
-	 *
-	 * @param parameters to build the request
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The request response
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Do an authorization transaction
+     *
+     * @param parameters to build the request
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The request response
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function  doAuthorization($parameters, $lang = null){
 		return PayUPayments::doPayment($parameters, TransactionType::AUTHORIZATION, $lang);
 	}
 
 
-	/**
-	 * Do a capture transaction
-	 *
-	 * @param parameters to build the request
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Do a capture transaction
+     *
+     * @param parameters to build the request
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function doCapture($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::CAPTURE, $lang);
 	}
 
-	/**
-	 * Do a void (Cancel) transaction
-	 *
-	 * @param parameters to build the request
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Do a void (Cancel) transaction
+     *
+     * @param parameters to build the request
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function doVoid($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::VOID, $lang);
 	}
 
-	/**
-	 * Do a refund transaction
-	 *
-	 * @param parameters to build the request
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Do a refund transaction
+     *
+     * @param parameters to build the request
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     */
 	public static function doRefund($parameters, $lang = NULL){
 		return PayUPayments::processTransactionAlreadyAuthorizated($parameters, TransactionType::REFUND, $lang);
 	}

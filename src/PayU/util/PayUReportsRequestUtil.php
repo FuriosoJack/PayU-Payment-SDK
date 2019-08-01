@@ -1,8 +1,7 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use App\Repository\PayU\PayU;
-use App\Repository\PayU\api\PayUCommands;
-use App\Repository\PayU\api\PayUKeyMapName;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
+
 /**
  *
  * Utility class to process parameters and send reports requests

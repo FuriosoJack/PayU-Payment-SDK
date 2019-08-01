@@ -15,14 +15,16 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
  */
 class PayUSubscriptionPlans{
 
-	/**
-	 * Creates a subscription plans
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a subscription plans
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function create($parameters, $lang = null){
 		PayUSubscriptionsRequestUtil::validateSubscriptionPlan($parameters);
 
@@ -34,14 +36,16 @@ class PayUSubscriptionPlans{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Find a subscription plan by plan code
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Find a subscription plan by plan code
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
 		CommonRequestUtil::validateParameters($parameters, $required);
@@ -55,14 +59,15 @@ class PayUSubscriptionPlans{
 	}
 
 
-	/**
-	 * Updates a subscription plan
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Updates a subscription plan
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function update($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
 		$invalid = array(
@@ -81,14 +86,16 @@ class PayUSubscriptionPlans{
 		return PayUApiServiceUtil::sendRequest($plan, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Deletes a subscription plan
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Deletes a subscription plan
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function delete($parameters, $lang = null){
 		$required = array(PayUParameters::PLAN_CODE);
 		CommonRequestUtil::validateParameters($parameters, $required);
@@ -103,18 +110,18 @@ class PayUSubscriptionPlans{
 	}
 
 
-
-	/**
-	 * Finds all subscription plans filtered by merchant or account
-	 * by default the function filter by merchant if you need filter by account
-	 * you can send in the parameters the account id
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return the subscription plan list
-	 * @throws PayUException
-	 * @throws InvalidParametersException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds all subscription plans filtered by merchant or account
+     * by default the function filter by merchant if you need filter by account
+     * you can send in the parameters the account id
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return the subscription plan list
+     * @throws PayUException
+     * @throws InvalidParametersException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function listPlans($parameters, $lang = null){
 
 		$request = new \stdClass();

@@ -1,11 +1,11 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU;
+use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 use FurosoJack\PayUPaymentSDK\PayU\util\RequestPaymentsUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsUrlResolver;
 use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsRequestUtil;
 use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUApiServiceUtil;
 use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 /**
  * Manages all PayU Bank Accounts operations over payment plans
@@ -17,14 +17,15 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 class PayUBankAccounts{
 
 
-	/**
-	 * Creates a bank account to payments
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a bank account to payments
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function create($parameters, $lang = null){
 
 		$customerId = CommonRequestUtil::getParameter($parameters, PayUParameters::CUSTOMER_ID);
@@ -42,14 +43,16 @@ class PayUBankAccounts{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Deletes a bank account
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Deletes a bank account
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function delete($parameters, $lang = null){
 
 		$required = array(PayUParameters::CUSTOMER_ID, PayUParameters::BANK_ACCOUNT_ID);
@@ -67,14 +70,16 @@ class PayUBankAccounts{
 		return PayUApiServiceUtil::sendRequest(null, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Updates a bank account
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Updates a bank account
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function update($parameters, $lang = null){
 
 		$required = array(PayUParameters::BANK_ACCOUNT_ID);
@@ -91,14 +96,16 @@ class PayUBankAccounts{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Return a bank account with the given id
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @return the find bank account
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Return a bank account with the given id
+     *
+     * @param parameters The parameters to be sent to the server
+     * @return the find bank account
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 
 		$required = array(PayUParameters::BANK_ACCOUNT_ID);
@@ -112,16 +119,17 @@ class PayUBankAccounts{
 		return PayUApiServiceUtil::sendRequest($bankAccountRequest, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Finds the bank accounts associated to a customer by customer id
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 *
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds the bank accounts associated to a customer by customer id
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     *
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function findListByCustomer($parameters, $lang = null){
 		$request = new \stdClass();
 		$request->customerId = CommonRequestUtil::getParameter($parameters, PayUParameters::CUSTOMER_ID);

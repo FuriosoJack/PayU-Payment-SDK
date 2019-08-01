@@ -16,15 +16,16 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 class PayURecurringBill{
 
 
-
-	/**
-	 * Finds a recurring bill by id
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds a recurring bill by id
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 
 		$required = array(PayUParameters::RECURRING_BILL_ID);
@@ -40,20 +41,21 @@ class PayURecurringBill{
 	}
 
 
-	/**
-	 * Finds all bill filtered by
-	 * - customer id
-	 * - date begin
-	 * - date final
-	 * - payment method
-	 * - subscription Id
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return the subscription plan list
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds all bill filtered by
+     * - customer id
+     * - date begin
+     * - date final
+     * - payment method
+     * - subscription Id
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return the subscription plan list
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function listRecurringBills($parameters, $lang = null){
 
 		$request = new \stdClass();

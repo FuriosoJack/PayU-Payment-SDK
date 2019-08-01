@@ -15,14 +15,16 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
  */
 class PayURecurringBillItem{
 
-	/**
-	 * Creates a recurring bill item
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a recurring bill item
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function create($parameters, $lang = null){
 
 		$required = array(
@@ -43,14 +45,16 @@ class PayURecurringBillItem{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Finds recurring bill items by id
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds recurring bill items by id
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 
 		$required = array(PayUParameters::RECURRING_BILL_ITEM_ID);
@@ -65,16 +69,17 @@ class PayURecurringBillItem{
 		return PayUApiServiceUtil::sendRequest(NULL, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Returns the recurring bill items with the query params
-	 *
-	 * @param parameters
-	 *            The parameters to be sent to the server
-	 * @return the recurring bill items found
-	 * @throws PayUException
-	 * @throws InvalidParametersException
-	 * @throws ConnectionException
-	 */
+    /**
+     * Returns the recurring bill items with the query params
+     *
+     * @param parameters
+     *            The parameters to be sent to the server
+     * @return the recurring bill items found
+     * @throws PayUException
+     * @throws InvalidParametersException
+     * @throws ConnectionException
+     * @throws util\InvalidArgumentException
+     */
 	public static function findList($parameters, $lang = null)	{
 
 		$subscriptionId = CommonRequestUtil::getParameter($parameters, PayUParameters::SUBSCRIPTION_ID);
@@ -100,14 +105,16 @@ class PayURecurringBillItem{
 		return PayUApiServiceUtil::sendRequest(null, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Updates a recurring bill item
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Updates a recurring bill item
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function update($parameters, $lang = null){
 		$required = array(PayUParameters::RECURRING_BILL_ITEM_ID);
 
@@ -121,14 +128,16 @@ class PayURecurringBillItem{
 		return PayUApiServiceUtil::sendRequest($recurrinbBillItem, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Deletes a recurring bill item
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Deletes a recurring bill item
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function delete($parameters, $lang = null){
 		$required = array(PayUParameters::RECURRING_BILL_ITEM_ID);
 		CommonRequestUtil::validateParameters($parameters, $required);

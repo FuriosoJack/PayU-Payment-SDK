@@ -1,6 +1,9 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
 use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
+
 /**
  * Utility class for send http request
  * @author PayU Latam
@@ -18,19 +21,20 @@ class HttpClientUtil {
 
 	const ACCEPT_LANGUAGE = 'Accept-Language: ';
 
-	/**
-	 * Sends a request type json
-	 * @param Object $request this object is encode to json is used to request data
-	 * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
-	 * @return string response
-	 * @throws RuntimeException
-	 */
+    /**
+     * Sends a request type json
+     * @param Object $request this object is encode to json is used to request data
+     * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
+     * @return string response
+     * @throws RuntimeException
+     * @throws ConnectionException
+     */
 	static function sendRequest($request, PayUHttpRequestInfo $payUHttpRequestInfo){
 
 		$httpHeader = array(
-		HttpClientUtil::CONTENT_TYPE,
-		HttpClientUtil::CONTENT_LENGTH . strlen($request),
-		HttpClientUtil::ACCEPT);
+		self::CONTENT_TYPE,
+		self::CONTENT_LENGTH . strlen($request),
+		self::ACCEPT);
 		if((isset($payUHttpRequestInfo->lang))){
 			array_push($httpHeader,HttpClientUtil::ACCEPT_LANGUAGE . '$payUHttpRequestInfo->lang');
 		}
@@ -53,7 +57,7 @@ class HttpClientUtil {
 		$httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 		if($curlResponse === false && $httpStatus === 0){
-			throw new \ConnectionException(PayUErrorCodes::CONNECTION_EXCEPTION, 'the url [' . $payUHttpRequestInfo->getUrl() . '] did not respond');
+			throw new ConnectionException(PayUErrorCodes::CONNECTION_EXCEPTION, 'the url [' . $payUHttpRequestInfo->getUrl() . '] did not respond');
 		}
 
  		if ($curlResponse === false) {

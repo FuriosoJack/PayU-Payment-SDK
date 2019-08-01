@@ -17,14 +17,16 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
  */
 class PayUCustomers{
 
-	/**
-	 * Creates a customer
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a customer
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function create($parameters, $lang = null){
 
 		PayUSubscriptionsRequestUtil::validateCustomer($parameters);
@@ -37,14 +39,16 @@ class PayUCustomers{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Creates a customer with bank account information
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a customer with bank account information
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function createCustomerWithBankAccount($parameters, $lang = null){
 
 		PayUSubscriptionsRequestUtil::validateCustomer($parameters);
@@ -62,14 +66,16 @@ class PayUCustomers{
 	}
 
 
-	/**
-	 * Creates a customer with credit card information
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a customer with credit card information
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function createCustomerWithCreditCard($parameters, $lang = null){
 
 		PayUSubscriptionsRequestUtil::validateCustomer($parameters);
@@ -89,14 +95,16 @@ class PayUCustomers{
 		return PayUApiServiceUtil::sendRequest($customer, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Finds a customer by id
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds a customer by id
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 
 		$required = array(PayUParameters::CUSTOMER_ID);
@@ -111,14 +119,16 @@ class PayUCustomers{
 	}
 
 
-	/**
-	 * Updates a customer
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Updates a customer
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function update($parameters, $lang = null){
 		$required = array(PayUParameters::CUSTOMER_ID);
 		CommonRequestUtil::validateParameters($parameters, $required);
@@ -135,14 +145,15 @@ class PayUCustomers{
 		return PayUApiServiceUtil::sendRequest($customer, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Deletes a customer
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Deletes a customer
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function delete($parameters, $lang = null){
 		$required = array(PayUParameters::CUSTOMER_ID);
 		CommonRequestUtil::validateParameters($parameters, $required);
@@ -158,16 +169,17 @@ class PayUCustomers{
 		return PayUApiServiceUtil::sendRequest($customer, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Finds the customers associated to a plan by plan id or by plan code
-	 *
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 *
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Finds the customers associated to a plan by plan id or by plan code
+     *
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     *
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidArgumentException
+     */
 	public static function findCustomerListByPlanIdOrPlanCode($parameters, $lang = null){
 		$request = new \stdClass();
 		$request->planId = CommonRequestUtil::getParameter($parameters, PayUParameters::PLAN_ID);

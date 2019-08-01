@@ -103,7 +103,7 @@ class PaymentMethods{
 	 * @return true if the payment method exist false the otherwise
 	 */
 	static function isValidPaymentMethod($paymentMethod){
-		return array_key_exists($paymentMethod, PaymentMethods::$methods);
+		return array_key_exists($paymentMethod, self::$methods);
 	}
 
 	/**
@@ -112,7 +112,7 @@ class PaymentMethods{
 	 * @return paymentMethod
 	 */
 	static function getPaymentMethod($paymentMethod){
-		return PaymentMethods::$methods[$paymentMethod];
+		return self::$methods[$paymentMethod];
 	}
 
 	/**
@@ -122,7 +122,7 @@ class PaymentMethods{
 	 * @return boolean
 	 */
 	static function isAllowedCashPaymentMethod($paymentMethod){
-		return in_array($paymentMethod, PaymentMethods::$allowedCashPaymentMethods);
+		return in_array($paymentMethod, self::$allowedCashPaymentMethods);
 	}
 
 

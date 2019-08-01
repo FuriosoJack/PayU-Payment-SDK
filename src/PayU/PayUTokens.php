@@ -67,14 +67,15 @@ class PayUTokens{
 
 	}
 
-	/**
-	 * Removes a credit card token
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The transaction response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Removes a credit card token
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The transaction response to the request sent
+     * @throws PayUException
+     * @throws \InvalidArgumentException
+     * @throws util\RuntimeException
+     */
 	public static function remove($parameters, $lang=null){
 
 		$required = array(PayUParameters::TOKEN_ID,

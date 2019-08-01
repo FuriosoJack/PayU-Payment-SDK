@@ -52,21 +52,21 @@ class Environment {
 	static $test = false;
 
 
-	/**
-	 * Gets the suitable url to the api sent
-	 * @param  the api to get the url it can have three values
-	 * PAYMENTS_API, REPORTS_API, SUBSCRIPTIONS_API
-	 * @throws InvalidArgumentException if the api value doesn't have a valid value
-	 * @return string with the url
-	 */
+    /**
+     * Gets the suitable url to the api sent
+     * @param  the api to get the url it can have three values
+     * PAYMENTS_API, REPORTS_API, SUBSCRIPTIONS_API
+     * @throws \InvalidArgumentException if the api value doesn't have a valid value
+     * @return string with the url
+     */
 	static function getApiUrl($api){
 		switch ($api){
-			case Environment::PAYMENTS_API:
-				return Environment::getPaymentsUrl();
-			case Environment::REPORTS_API:
-				return Environment::getReportsUrl();
-			case Environment::SUBSCRIPTIONS_API:
-				return Environment::getSubscriptionUrl();
+			case self::PAYMENTS_API:
+				return self::getPaymentsUrl();
+			case self::REPORTS_API:
+				return self::getReportsUrl();
+			case self::SUBSCRIPTIONS_API:
+				return self::getSubscriptionUrl();
 			default:
 				throw new \InvalidArgumentException(sprintf('the api argument [%s] is invalid please check the Environment class ' ,$api));
 		}
@@ -77,14 +77,14 @@ class Environment {
 	 * @return  the paymets url configured
 	 */
 	static function getPaymentsUrl() {
-		if(isset(Environment::$paymentsCustomUrl)) {
-			return Environment::$paymentsCustomUrl;
+		if(isset(self::$paymentsCustomUrl)) {
+			return self::$paymentsCustomUrl;
 		}
 
-		if(!Environment::$test) {
-			return Environment::$paymentsUrl;
+		if(!self::$test) {
+			return self::$paymentsUrl;
 		}else {
-			return Environment::$paymentsTestUrl;
+			return self::$paymentsTestUrl;
 		}
 	}
 
@@ -93,30 +93,30 @@ class Environment {
 	 * @return the reports url
 	 */
 	static function getReportsUrl() {
-		if(Environment::$reportsCustomUrl != null) {
-			return Environment::$reportsCustomUrl;
+		if(self::$reportsCustomUrl != null) {
+			return self::$reportsCustomUrl;
 		}
 
-		if(!Environment::$test) {
-			return Environment::$reportsUrl;
+		if(!self::$test) {
+			return self::$reportsUrl;
 		}else {
-			return Environment::$reportsTestUrl;
+			return self::$reportsTestUrl;
 		}
 	}
 
 	/**
 	 * Returns the subscriptions url
-	 * @return the subscriptions url
-	 */
+	 * @return string
+     */
 	static function getSubscriptionUrl() {
-		if(Environment::$subscriptionsCustomUrl != null) {
-			return Environment::$subscriptionsCustomUrl;
+		if(self::$subscriptionsCustomUrl != null) {
+			return self::$subscriptionsCustomUrl;
 		}
 
-		if(!Environment::$test) {
-			return Environment::$subscriptionsTestUrl;
+		if(!self::$test) {
+			return self::$subscriptionsTestUrl;
 		}else {
-			return Environment::$subscriptionsUrl;
+			return self::$subscriptionsUrl;
 		}
 	}
 
@@ -126,7 +126,7 @@ class Environment {
 	 * @param string $paymentsCustomUrl
 	 */
 	static function setPaymentsCustomUrl($paymentsCustomUrl) {
-		Environment::$paymentsCustomUrl = $paymentsCustomUrl;
+		self::$paymentsCustomUrl = $paymentsCustomUrl;
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Environment {
 	 * @param string $reportsCustomUrl
 	 */
 	static function setReportsCustomUrl($reportsCustomUrl) {
-		Environment::$reportsCustomUrl = $reportsCustomUrl;
+		self::$reportsCustomUrl = $reportsCustomUrl;
 	}
 
 	/**
@@ -142,13 +142,13 @@ class Environment {
 	 * @param string $subscriptionsCustomUrl
 	 */
 	static function setSubscriptionsCustomUrl($subscriptionsCustomUrl){
-		Environment::$subscriptionsCustomUrl = $subscriptionsCustomUrl;
+		self::$subscriptionsCustomUrl = $subscriptionsCustomUrl;
 	}
 
-	/**
-	 * Validates the Environment before process any request
-	 * @throws ErrorException
-	 */
+    /**
+     * Validates the Environment before process any request
+     * @throws \ErrorException
+     */
 	static function validate() {
 		if(version_compare(PHP_VERSION, '5.2.1', '<'))  {
 			throw new \ErrorException('PHP version >= 5.2.1 required');

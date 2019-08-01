@@ -1,12 +1,12 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use App\Repository\PayU\api\PayUConfig;
-use App\Repository\PayU\exceptions\PayUException;
-use App\Repository\PayU\PayU;
-use App\Repository\PayU\api\Environment;
-use App\Repository\PayU\api\PayUResponseCode;
-use App\Repository\PayU\exceptions\PayUErrorCodes;
-use App\Repository\PayU\api\PayUHttpRequestInfo;
+use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
+use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+
 /**
  *
  * Util class to send request and process the response
@@ -19,15 +19,19 @@ use App\Repository\PayU\api\PayUHttpRequestInfo;
 class PayUApiServiceUtil{
 
 
-	/**
-	 * Sends a request type json
-	 *
-	 * @param Object $request this object is encode to json is used to request data
-	 * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
-	 * @param bool $removeNullValues if remove null values in request and response object
-	 * @return string response
-	 * @throws RuntimeException
-	 */
+    /**
+     * Sends a request type json
+     *
+     * @param Object $request this object is encode to json is used to request data
+     * @param PayUHttpRequestInfo $payUHttpRequestInfo object with info to send an api request
+     * @param bool $removeNullValues if remove null values in request and response object
+     * @return string response
+     * @throws RuntimeException
+     * @throws InvalidArgumentException
+     * @throws IllegalArgumentException
+     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
+     * @throws PayUException
+     */
 	public static function sendRequest($request, PayUHttpRequestInfo $payUHttpRequestInfo, $removeNullValues = NULL){
 		if(!isset($removeNullValues)){
 			$removeNullValues = PayUConfig::REMOVE_NULL_OVER_REQUEST;

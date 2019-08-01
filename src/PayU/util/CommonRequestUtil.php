@@ -1,5 +1,6 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
+use DateTime;
 use FurosoJack\PayUPaymentSDK\PayU\PayU;
 /**
  *
@@ -23,7 +24,7 @@ class CommonRequestUtil{
 		$request = new \stdClass();
 		$request->language = $lang;
 		$request->command = $command;
-		$request->merchant = CommonRequestUtil::buildMerchant();
+		$request->merchant = self::buildMerchant();
 		$request->test = PayU::$isTest;
 		return $request;
 	}
@@ -160,12 +161,12 @@ class CommonRequestUtil{
 	 */
 	protected static function buildCreditCard($parameters){
 		$creditCard = new \stdClass();
-		$creditCard->name = CommonRequestUtil::getParameter($parameters, PayUParameters::PAYER_NAME);
-		$creditCard->number = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_NUMBER);
-		$creditCard->expirationDate = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_EXPIRATION_DATE);
-		$creditCard->securityCode = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_SECURITY_CODE);
-		$creditCard->processWithoutCvv2 = (bool) CommonRequestUtil::getParameter($parameters, PayUParameters::PROCESS_WITHOUT_CVV2);
-		$creditCard->document = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_DOCUMENT);
+		$creditCard->name = self::getParameter($parameters, PayUParameters::PAYER_NAME);
+		$creditCard->number = self::getParameter($parameters, PayUParameters::CREDIT_CARD_NUMBER);
+		$creditCard->expirationDate = self::getParameter($parameters, PayUParameters::CREDIT_CARD_EXPIRATION_DATE);
+		$creditCard->securityCode = self::getParameter($parameters, PayUParameters::CREDIT_CARD_SECURITY_CODE);
+		$creditCard->processWithoutCvv2 = (bool) self::getParameter($parameters, PayUParameters::PROCESS_WITHOUT_CVV2);
+		$creditCard->document = self::getParameter($parameters, PayUParameters::CREDIT_CARD_DOCUMENT);
 
 		return $creditCard;
 	}
@@ -181,7 +182,7 @@ class CommonRequestUtil{
 	 * @return boolean true if is valid or exception the otherwise
 	 */
 	protected static function isValidDate( $dateString, $dateFormat, $parameterName){
-		if (\DateTime::createFromFormat($dateFormat, $dateString) == FALSE) {
+		if (DateTime::createFromFormat($dateFormat, $dateString) == FALSE) {
 			throw new
 			InvalidArgumentException(
 					sprintf("The [%s] format is invalid. Use [%s] ",

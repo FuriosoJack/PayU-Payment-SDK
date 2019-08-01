@@ -17,14 +17,16 @@ use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
  */
 class PayUCreditCards{
 
-	/**
-	 * Creates a credit card
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Creates a credit card
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function create($parameters, $lang = null){
 
 		PayUSubscriptionsRequestUtil::validateCreditCard($parameters);
@@ -46,14 +48,16 @@ class PayUCreditCards{
 		return PayUApiServiceUtil::sendRequest($request, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * finds a credit card
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * finds a credit card
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function find($parameters, $lang = null){
 
 		$required = array(PayUParameters::TOKEN_ID);
@@ -67,16 +71,18 @@ class PayUCreditCards{
 		return PayUApiServiceUtil::sendRequest($creditCard, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Returns the credit card list with the query params
-	 *
-	 * @param parameters
-	 *            The parameters to be sent to the server
-	 * @return the credit card list
-	 * @throws PayUException
-	 * @throws InvalidParametersException
-	 * @throws ConnectionException
-	 */
+    /**
+     * Returns the credit card list with the query params
+     *
+     * @param parameters
+     *            The parameters to be sent to the server
+     * @return the credit card list
+     * @throws PayUException
+     * @throws InvalidParametersException
+     * @throws ConnectionException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function findList($parameters, $lang = null)	{
 
 		$required = array(PayUParameters::CUSTOMER_ID);
@@ -94,14 +100,16 @@ class PayUCreditCards{
 		return PayUApiServiceUtil::sendRequest($creditCard, $payUHttpRequestInfo);
 	}
 
-	/**
-	 * Updates a credit card
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Updates a credit card
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return string
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function update($parameters, $lang = null){
 
 		$required = array(PayUParameters::TOKEN_ID);
@@ -120,14 +128,16 @@ class PayUCreditCards{
 
 	}
 
-	/**
-	 * Deletes a credit card
-	 * @param parameters The parameters to be sent to the server
-	 * @param string $lang language of request see SupportedLanguages class
-	 * @return The response to the request sent
-	 * @throws PayUException
-	 * @throws InvalidArgumentException
-	 */
+    /**
+     * Deletes a credit card
+     * @param parameters The parameters to be sent to the server
+     * @param string $lang language of request see SupportedLanguages class
+     * @return The response to the request sent
+     * @throws PayUException
+     * @throws InvalidArgumentException
+     * @throws util\InvalidParameterException
+     * @throws util\InvalidArgumentException
+     */
 	public static function delete($parameters, $lang = null){
 
 		$required = array(PayUParameters::TOKEN_ID, PayUParameters::CUSTOMER_ID);

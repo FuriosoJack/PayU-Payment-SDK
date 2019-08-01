@@ -1,10 +1,10 @@
 <?php
 namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use App\Repository\PayU\api\PayUConfig;
-use App\Repository\PayU\api\PayUHttpRequestInfo;
-use App\Repository\PayU\PayU;
-use App\Repository\PayU\api\PayUKeyMapName;
-use App\Repository\PayU\api\Environment;
+use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
+use FurosoJack\PayUPaymentSDK\PayU\PayU;
+
 /**
  *
  * Utility class to process parameters and send requests
@@ -44,7 +44,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 			$subscription->quantity = CommonRequestUtil::getParameter($parameters, PayUParameters::QUANTITY);
 			$subscription->installments = CommonRequestUtil::getParameter($parameters, PayUParameters::INSTALLMENTS_NUMBER);
 
-			$customer = PayUSubscriptionsRequestUtil::buildCustomer($parameters);
+			$customer = self::buildCustomer($parameters);
 
 			//creates the credit card object and associate to the customer
 			if ($existParamCreditCard == TRUE){
@@ -66,7 +66,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 			}
 
 			$subscription->customer = $customer;
-			$subscription->plan = PayUSubscriptionsRequestUtil::buildSubscriptionPlan($parameters);
+			$subscription->plan = self::buildSubscriptionPlan($parameters);
 			$subscription->plan->id = CommonRequestUtil::getParameter($parameters, PayUParameters::PLAN_ID);
 
 			$termsAndConditionsAcepted = CommonRequestUtil::getParameter($parameters, PayUParameters::TERMS_AND_CONDITIONS_ACEPTED);
@@ -85,7 +85,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		$creditCard = null;
 		$tokenId = CommonRequestUtil::getParameter($parameters, PayUParameters::TOKEN_ID);
 		if(!isset($tokenId)){
-			$creditCard = PayUSubscriptionsRequestUtil::buildCreditCard($parameters);
+			$creditCard = self::buildCreditCard($parameters);
 			$creditCard->customerId = NULL;
 		}else{
 			$creditCard = new \stdClass();
@@ -137,7 +137,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		$planTaxValue = CommonRequestUtil::getParameter($parameters, PayUParameters::PLAN_TAX);
 		$planTaxReturnBase = CommonRequestUtil::getParameter($parameters, PayUParameters::PLAN_TAX_RETURN_BASE);
 
-		$subscriptionPlan->additionalValues = PayUSubscriptionsRequestUtil::buildSubscriptionPlanAdditionalValues($planCurrency, $planValue, $planTaxValue, $planTaxReturnBase);
+		$subscriptionPlan->additionalValues = self::buildSubscriptionPlanAdditionalValues($planCurrency, $planValue, $planTaxValue, $planTaxReturnBase);
 
 		return $subscriptionPlan;
 	}
@@ -158,11 +158,12 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 	}
 
 
-	/**
-	 * Build a credit card request
-	 * @param array $parameters
-	 * @return \stdClass with the credit card request built
-	 */
+    /**
+     * Build a credit card request
+     * @param array $parameters
+     * @return \stdClass with the credit card request built
+     * @throws InvalidArgumentException
+     */
 	public static function buildCreditCard($parameters){
 
 		$creditCard = new \stdClass();
@@ -174,7 +175,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 		$creditCard->type = CommonRequestUtil::getParameter($parameters, PayUParameters::PAYMENT_METHOD);
 		$creditCard->document = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_DOCUMENT);
 
-		$creditCard->address = PayUSubscriptionsRequestUtil::buildAddress($parameters);
+		$creditCard->address = self::buildAddress($parameters);
 
 
 		$expirationDate = CommonRequestUtil::getParameter($parameters, PayUParameters::CREDIT_CARD_EXPIRATION_DATE);
@@ -246,11 +247,11 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 
 		$additionalValues = null;
 
-		$additionalValues = PayUSubscriptionsRequestUtil::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_VALUE, $value);
+		$additionalValues = self::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_VALUE, $value);
 
-		$additionalValues = PayUSubscriptionsRequestUtil::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_TAX, $taxValue);
+		$additionalValues = self::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_TAX, $taxValue);
 
-		$additionalValues = PayUSubscriptionsRequestUtil::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_TAX_RETURN_BASE, $taxReturnBase);
+		$additionalValues = self::addAdditionalValue($additionalValues, $currency, PayUKeyMapName::ITEM_TAX_RETURN_BASE, $taxReturnBase);
 
 		return $additionalValues;
 
@@ -369,7 +370,7 @@ class PayUSubscriptionsRequestUtil extends CommonRequestUtil{
 			$invalid = array(PayUParameters::CUSTOMER_EMAIL,PayUParameters::CUSTOMER_NAME);
 			CommonRequestUtil::validateParameters($parameters,NULL,$invalid);
 		}else{
-			PayUSubscriptionsRequestUtil::validateCustomer($parameters, FALSE);
+			self::validateCustomer($parameters, FALSE);
 		}
 
 	}
