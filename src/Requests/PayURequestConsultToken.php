@@ -1,16 +1,14 @@
 <?php
-
-
 namespace FuriosoJack\PayUPaymentSDK\Requests;
 use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
-use FurosoJack\PayUPaymentSDK\PayU\PayUPayments;
+use FurosoJack\PayUPaymentSDK\PayU\PayUTokens;
 
 /**
- * Class PayUSetPayment
+ * Class PayUConsultToken
  * @package FuriosoJack\PayUPaymentSDK\Requests
  * @author Juan Diaz - FuriosoJack <iam@furiosojack.com>
  */
-class PayUSetPayment extends PayUBasicRequestAbstract
+class PayURequestConsultToken extends  PayUBasicRequestAbstract
 {
 
     /**
@@ -21,12 +19,10 @@ class PayUSetPayment extends PayUBasicRequestAbstract
     public function sendRequest()
     {
         try {
-            $this->response = PayUPayments::doAuthorizationAndCapture(
+            $this->response = PayUTokens::find(
                 $this->parameters->getParameters()
             );
-
             $this->checkResponse();
-
         } catch (\Exception $e) {
             $this->errors = $e->getMessage();
         }

@@ -10,7 +10,7 @@ use FurosoJack\PayUPaymentSDK\PayU\PayUTokens;
  * @package FuriosoJack\PayUPaymentSDK\Requests
  * @author Juan Diaz - FuriosoJack <iam@furiosojack.com>
  */
-class PayUStoreTokenCreditCard extends PayUBasicRequestAbstract
+class PayURequestStoreTokenCreditCard extends PayUBasicRequestAbstract
 {
 
     /**

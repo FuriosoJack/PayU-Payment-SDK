@@ -1,14 +1,16 @@
 <?php
+
+
 namespace FuriosoJack\PayUPaymentSDK\Requests;
 use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
 use FurosoJack\PayUPaymentSDK\PayU\PayUTokens;
 
 /**
- * Class PayUConsultToken
+ * Class PayUDeleteTokenCreditCard
  * @package FuriosoJack\PayUPaymentSDK\Requests
  * @author Juan Diaz - FuriosoJack <iam@furiosojack.com>
  */
-class PayUConsultToken extends  PayUBasicRequestAbstract
+class PayURequestDeleteTokenCreditCard extends PayUBasicRequestAbstract
 {
 
     /**
@@ -19,7 +21,7 @@ class PayUConsultToken extends  PayUBasicRequestAbstract
     public function sendRequest()
     {
         try {
-            $this->response = PayUTokens::find(
+            $this->response = PayUTokens::remove(
                 $this->parameters->getParameters()
             );
             $this->checkResponse();

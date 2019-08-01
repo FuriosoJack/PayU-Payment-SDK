@@ -13,6 +13,9 @@ abstract  class PayUBasicRequestAbstract
     protected $parameters;
     protected $response;
     protected $errors;
+    protected $callBackOnSucess;
+    protected $callBackOnError;
+
 
     /**
      * Se encarga de setear una clase que herede de PayUParametersAbstract
@@ -53,4 +56,39 @@ abstract  class PayUBasicRequestAbstract
      * Se encrara que la respuesta sea satisfactoria
      */
     protected abstract function checkResponse();
+
+    /**
+     * @return mixed
+     */
+    public function getCallBackOnSucess()
+    {
+        return $this->callBackOnSucess;
+    }
+
+    /**
+     * @param mixed $callBackOnSucess
+     */
+    public function setCallBackOnSucess($callBackOnSucess)
+    {
+        $this->callBackOnSucess = $callBackOnSucess;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCallBackOnError()
+    {
+        return $this->callBackOnError;
+    }
+
+    /**
+     * @param mixed $callBackOnError
+     */
+    public function setCallBackOnError($callBackOnError)
+    {
+        $this->callBackOnError = $callBackOnError;
+    }
+
+
+
 }
