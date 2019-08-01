@@ -55,10 +55,4 @@ abstract class PayU {
 
 
 /** validates Environment before begin any operation */
-	//Environment::validate();
-
-Environment::setPaymentsCustomUrl("https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi");
-// URL de Consultas
-Environment::setReportsCustomUrl("https://sandbox.api.payulatam.com/reports-api/4.0/service.cgi");
-// URL de Suscripciones para Pagos Recurrentes
-Environment::setSubscriptionsCustomUrl("https://sandbox.api.payulatam.com/payments-api/rest/v4.3/");
+Environment::validate();
