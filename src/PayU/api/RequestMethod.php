@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\api;
+namespace FuriosoJack\PayUPaymentSDK\PayU\api;
 /**
  * The API request methods
  *

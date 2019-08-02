@@ -1,6 +1,6 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\api;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+namespace FuriosoJack\PayUPaymentSDK\PayU\api;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 /**
  * Contains the attribute name for the differents operation against api
  *

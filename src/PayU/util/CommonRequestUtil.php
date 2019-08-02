@@ -1,7 +1,7 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
 use DateTime;
-use FurosoJack\PayUPaymentSDK\PayU\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\PayU;
 /**
  *
  * Util class for WEB request

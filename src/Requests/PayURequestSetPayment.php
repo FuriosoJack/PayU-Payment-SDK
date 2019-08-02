@@ -2,8 +2,8 @@
 
 
 namespace FuriosoJack\PayUPaymentSDK\Requests;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
-use FurosoJack\PayUPaymentSDK\PayU\PayUPayments;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
+use FuriosoJack\PayUPaymentSDK\PayU\PayUPayments;
 
 /**
  * Class PayUSetPayment
@@ -16,7 +16,7 @@ class PayURequestSetPayment extends PayUBasicRequestAbstract
     /**
      * Se define metodo para el envio del request
      * @throws \InvalidArgumentException
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\PayUException
+     * @throws \FuriosoJack\PayUPaymentSDK\PayU\PayUException
      */
     public function sendRequest()
     {

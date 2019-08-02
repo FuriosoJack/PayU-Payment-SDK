@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\api;
+namespace FuriosoJack\PayUPaymentSDK\PayU\api;
 
 /**
  * Contains information about the Environment setup

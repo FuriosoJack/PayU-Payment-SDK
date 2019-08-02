@@ -1,14 +1,14 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUReportsRequestUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
-use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
+namespace FuriosoJack\PayUPaymentSDK\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUReportsRequestUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
+use FuriosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 /**
  * Manages all PayU reports operations
  *
@@ -40,7 +40,7 @@ class PayUReports{
      * @param parameters The parameters to be sent to the server
      * @param string $lang language of request see SupportedLanguages class
      * @return order found
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
+     * @throws \FuriosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
      * @throws PayUException
      * @throws \InvalidArgumentException
      */

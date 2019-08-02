@@ -1,9 +1,9 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
-use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+use FuriosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 /**
  *
  * Utility class to process parameters and send token requests

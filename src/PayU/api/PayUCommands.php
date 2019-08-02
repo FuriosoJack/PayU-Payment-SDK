@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\api;
+namespace FuriosoJack\PayUPaymentSDK\PayU\api;
 /**
  * This class contains the payu commands
  * availables in payu platform

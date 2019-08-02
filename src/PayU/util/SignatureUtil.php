@@ -1,6 +1,6 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
 /**
  *
  * Utility class to generate the payu signature

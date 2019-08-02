@@ -1,6 +1,6 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
 /**
  *
  * This class has utility methods for objects used in the request

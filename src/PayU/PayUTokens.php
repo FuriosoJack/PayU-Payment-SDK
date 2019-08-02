@@ -1,13 +1,13 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUTokensRequestUtil;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
+namespace FuriosoJack\PayUPaymentSDK\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUTokensRequestUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
 /**
  * Manages all PayU tokens operations
  * @author PayU Latam

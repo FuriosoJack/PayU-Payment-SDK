@@ -1,11 +1,11 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
-use FurosoJack\PayUPaymentSDK\PayU\api\PaymentMethods;
-use FurosoJack\PayUPaymentSDK\PayU\api\TransactionType;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUCommands;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PaymentMethods;
+use FuriosoJack\PayUPaymentSDK\PayU\api\TransactionType;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
 
 /**
  *

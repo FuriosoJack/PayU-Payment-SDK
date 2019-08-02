@@ -1,9 +1,9 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
-use FurosoJack\PayUPaymentSDK\PayU\PayU;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUKeyMapName;
+use FuriosoJack\PayUPaymentSDK\PayU\PayU;
 
 /**
  *

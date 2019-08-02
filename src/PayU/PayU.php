@@ -1,7 +1,7 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\api\SupportedLanguages;
+namespace FuriosoJack\PayUPaymentSDK\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\api\SupportedLanguages;
 /**
  *
  * Holds basic request information

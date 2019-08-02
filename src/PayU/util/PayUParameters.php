@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
 /**
  *
  * Contains the parameters names

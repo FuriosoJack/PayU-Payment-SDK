@@ -1,12 +1,12 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsRequestUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsUrlResolver;
-use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
-use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
+namespace FuriosoJack\PayUPaymentSDK\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsRequestUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUSubscriptionsUrlResolver;
+use FuriosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+use FuriosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 /**
  * Manages all PayU Subscription plans operations
  * @author PayU Latam

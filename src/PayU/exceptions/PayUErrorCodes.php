@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\exceptions;
+namespace FuriosoJack\PayUPaymentSDK\PayU\exceptions;
 /**
  *
  * Contains the error codes  used in exceptions

@@ -1,8 +1,8 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
 
 /**
  * Utility class for send http request

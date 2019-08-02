@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\api;
+namespace FuriosoJack\PayUPaymentSDK\PayU\api;
 /**
  * Contains the response codes for a transaction in the PayU SDK.
  * @author PayU Latam

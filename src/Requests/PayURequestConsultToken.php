@@ -1,7 +1,7 @@
 <?php
 namespace FuriosoJack\PayUPaymentSDK\Requests;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
-use FurosoJack\PayUPaymentSDK\PayU\PayUTokens;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
+use FuriosoJack\PayUPaymentSDK\PayU\PayUTokens;
 
 /**
  * Class PayUConsultToken

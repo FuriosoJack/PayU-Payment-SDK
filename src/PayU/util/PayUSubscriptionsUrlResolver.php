@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
 /**
  *
  * Util class to build  the url to subscriptions api operations

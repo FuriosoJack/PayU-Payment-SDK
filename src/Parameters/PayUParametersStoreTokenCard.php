@@ -1,6 +1,6 @@
 <?php
 namespace FuriosoJack\PayUPaymentSDK\Parameters;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
 
 /**
  * Class PayUParametersStoreTokenCard

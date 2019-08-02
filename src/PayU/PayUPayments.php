@@ -1,15 +1,15 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
-use FurosoJack\PayUPaymentSDK\PayU\util\RequestPaymentsUtil;
-use FurosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
-use FurosoJack\PayUPaymentSDK\PayU\api\TransactionType;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUPaymentMethodType;
-use FurosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
+namespace FuriosoJack\PayUPaymentSDK\PayU;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUApiServiceUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\util\RequestPaymentsUtil;
+use FuriosoJack\PayUPaymentSDK\PayU\api\RequestMethod;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\util\PayUParameters;
+use FuriosoJack\PayUPaymentSDK\PayU\api\TransactionType;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUPaymentMethodType;
+use FuriosoJack\PayUPaymentSDK\PayU\util\CommonRequestUtil;
 /**
  * Manages all PayU payments operations
  *

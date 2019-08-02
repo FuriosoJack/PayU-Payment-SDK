@@ -1,11 +1,11 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\util;
-use FurosoJack\PayUPaymentSDK\PayU\api\Environment;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
-use FurosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
-use FurosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
+namespace FuriosoJack\PayUPaymentSDK\PayU\util;
+use FuriosoJack\PayUPaymentSDK\PayU\api\Environment;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUConfig;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUHttpRequestInfo;
+use FuriosoJack\PayUPaymentSDK\PayU\api\PayUResponseCode;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUErrorCodes;
+use FuriosoJack\PayUPaymentSDK\PayU\exceptions\PayUException;
 
 /**
  *
@@ -29,7 +29,7 @@ class PayUApiServiceUtil{
      * @throws \InvalidArgumentException
      * @throws \RuntimeException
      * @throws PayUException
-     * @throws \FurosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
+     * @throws \FuriosoJack\PayUPaymentSDK\PayU\exceptions\ConnectionException
      */
 	public static function sendRequest($request, PayUHttpRequestInfo $payUHttpRequestInfo, $removeNullValues = NULL){
 		if(!isset($removeNullValues)){

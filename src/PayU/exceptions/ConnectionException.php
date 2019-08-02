@@ -1,5 +1,5 @@
 <?php
-namespace FurosoJack\PayUPaymentSDK\PayU\exceptions;
+namespace FuriosoJack\PayUPaymentSDK\PayU\exceptions;
 /**
  *
  * Payu exception throw when the api service cann't
